@@ -1,0 +1,21 @@
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.main-content {
+    background: $page-background-color;
+}
+
+.hide-mobile {
+    display: none;
+    @include tablet {
+      display: block;
+    }
+  }
+
+  .mobile-only {
+    @include tablet {
+      display: none;
+    }
+  }

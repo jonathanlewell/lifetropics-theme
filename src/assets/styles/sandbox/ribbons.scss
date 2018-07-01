@@ -1,0 +1,28 @@
+.bottom-ribbon {
+    background-color: $grey-3;
+    color: $text-color-light;
+    padding-top: $spacing;
+    padding-bottom: $spacing;
+    @include tablet {
+        padding-top: $spacing*3;
+        padding-bottom: $spacing*3;
+    }
+}
+
+.bottom-ribbon__shipping, .bottom-ribbon__guarantee,
+.footer-menu {
+    margin: 0;
+}
+
+.footer-menu {
+    list-style: none;
+}
+
+.footer-menu__link {
+    color: $text-color-light;
+}
+
+.bottom-ribbon__link {
+    color: $link-color-light;
+    text-decoration: underline;
+}

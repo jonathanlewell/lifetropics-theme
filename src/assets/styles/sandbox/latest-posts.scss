@@ -1,0 +1,28 @@
+/*
+.latest-posts {
+    padding-top: $spacing;
+    padding-bottom: $spacing;
+    @include tablet {
+        padding-top: $spacing*2;
+        padding-bottom: $spacing*3;
+    }
+}
+
+.latest-post {
+    margin-bottom: $spacing;
+}
+*/
+
+@include tablet {
+    .latest-posts-grid {
+        display: flex;
+        margin-bottom: $spacing;
+    }
+    .latest-post {
+        margin-bottom: 0;
+        margin-right: $spacing;
+    }
+    .latest-post:last-child {
+        margin-right: 0;
+    }
+}

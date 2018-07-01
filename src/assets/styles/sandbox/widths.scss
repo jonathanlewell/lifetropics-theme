@@ -1,0 +1,14 @@
+.wrapper {
+    //max-width: 85vw;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding-right: $spacing/2; /* 3 */
+    padding-left:  $spacing/2; /* 3 */
+    position: relative;
+}
+
+/* Section heights */
+
+.no-margin {
+    margin: 0;
+}

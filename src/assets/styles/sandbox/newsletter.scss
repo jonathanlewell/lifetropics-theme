@@ -1,0 +1,88 @@
+.newsletter-section {
+  background-color: #B7ECEC;
+  padding-top: $spacing;
+  padding-bottom: $spacing;
+  @include tablet {
+      padding-top: $spacing*3;
+      padding-bottom: $spacing*3;
+  }
+}
+
+  .newsletter-box__field {
+    display: flex;
+  }
+
+  .newsletter-box__input {
+  /* Shrink and grow as needed, but never shrink so
+       small that we can't read the placeholder */
+    flex: 1 0 4rem;
+  }
+
+  .newsletter-box__button {
+    // Never shrink or grow
+    flex: 0 0 auto;
+  }
+
+  .newsletter-form {
+    margin: 0;
+  }
+
+  input,
+  button,
+  .newsletter-form {
+    border: none;
+    text-decoration: none;
+  }
+
+  .newsletter-box__input {
+    background: #eee;
+    color: #555;
+    padding: 0.25rem 0.5rem;
+    border: solid 1px $text-color-light;
+    // Make sure the placeholder isn't poorly cut off
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .newsletter-box__input:focus {
+    background: white;
+  }
+
+  .newsletter-box__button {
+    padding: 0.25rem 0.5rem;
+    border: solid 1px $text-color-light;
+    background-color: #cd282f;
+    border-radius: 0 2px 2px 0;
+    font-weight: 300;
+    font-family: $font-sans-serif;
+    text-transform: none;
+    color: $text-color-light;
+  }
+
+.newsletter-box {
+  margin-bottom: $spacing;
+}
+
+  @include tablet {
+    .newsletter-layout {
+        display: flex;
+    }
+    .newsletter-copy {
+        width: 65%;
+        margin-right: $spacing;
+    }
+    .newsletter-box {
+        width: 35%;
+        margin-bottom: 0;
+    }
+    .newsletter-box__input {
+        padding: 0.5rem 1rem;
+    }
+    .newsletter-box__button {
+        padding: 0.5rem 1rem;
+    }
+    .newsletter-copy__paragraph {
+      margin: 0;
+    }
+}

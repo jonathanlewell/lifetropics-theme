@@ -1,0 +1,62 @@
+.grid {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+.grid-item {
+  flex-basis: 100%;
+}
+
+.grid-item p {
+    margin-bottom: 1rem;
+}
+
+@include tablet {
+  .grid-item {
+    flex: 1;
+    margin-right: $spacing;
+  }
+    .grid-item:last-child {
+        margin-right: 0;
+    }
+  .grid-item--25 {
+    flex: 2.5;
+  }
+  .grid-item--33 {
+    flex: 3.3;
+  }
+  .grid-item--55 {
+    flex: 5.5;
+  }
+  .grid-item--20 {
+    flex: 2;
+  }
+}
+
+.grid-item--guides {
+  border: 1px solid rgb(76, 164, 236);
+  border-radius: 4px;
+  padding: $spacing/2;
+  margin-bottom: $spacing;
+  @include tablet {
+    margin-bottom: 0;
+  }
+}
+
+.grid-item--shop {
+  border: 1px solid rgb(29, 203, 139);
+  border-radius: 4px;
+  padding: $spacing/2;
+  margin-bottom: $spacing;
+  @include tablet {
+    margin-bottom: 0;
+  }
+}
+
+.grid-item--chat {
+  border: 1px solid rgb(29, 203, 139);
+  border-radius: 4px;
+  padding: $spacing/2;
+}

@@ -1,0 +1,71 @@
+// Banner container
+
+.banner {
+    padding-top: $spacing;
+    padding-bottom: $spacing;
+    @include tablet {
+        padding-top: $spacing*2;
+        padding-bottom: $spacing*2;
+    }
+}
+
+// Layout
+
+.banner-layout {
+    @include tablet {
+        display: flex;
+    }
+}
+
+.banner-copy {
+    flex: 7.5;
+    margin-bottom: $spacing;
+    @include tablet {
+        margin-right: $spacing;
+        margin-bottom: 0;
+    }
+}
+
+// Heading
+
+.banner__headline {
+    line-height: 1.4;
+}
+
+.banner__headline--light {
+
+}
+
+// Lists of bullets
+
+.banner__list {
+    margin-left: 2rem;
+}
+
+.banner__item {
+    margin-bottom: 1rem;
+}
+
+.banner__item--light {
+}
+
+// CTA
+
+// Banner media stuff
+
+.banner-media {
+    flex: 2.5;
+    display: block;
+}
+
+.banner-image {
+}
+
+.banner-image__caption {
+    margin-top: 1rem;
+    font-family: $font-sans-serif;
+    font-size: 0.9rem;
+    color: lighten($text-color, 10%);
+    text-align: center;
+}
+

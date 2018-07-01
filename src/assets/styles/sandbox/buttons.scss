@@ -1,0 +1,16 @@
+.button {
+    display: block;
+    max-width: max-content;
+    padding: 0.5rem 1rem;
+    background-color: rgb(76, 164, 236);
+    border: solid 1px rgb(76, 164, 236);
+    border-radius: 4px;
+    font-family: $font-sans-serif;
+    color: $text-color-light;
+    text-align: center;
+}
+
+.button--secondary {
+    background-color: rgb(29, 203, 139);
+    border: solid 1px rgb(29, 203, 139);
+}

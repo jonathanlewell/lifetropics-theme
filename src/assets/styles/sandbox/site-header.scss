@@ -1,0 +1,374 @@
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account-outer {
+  padding: 0.25rem 0.5rem;
+  border: solid 1px $text-color;
+  border-radius: 0 2px 2px 0;
+}
+ 
+.account {
+  display: flex;
+  align-items: center;
+}
+
+.account__text {
+  display: none;
+}
+
+/* Navigation */
+
+.site-navigation {
+  background: #fff;
+  font-family: $font-sans-serif;
+  font-size: 0.9rem;
+}
+
+.l-site-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation-menu {
+  display: none;
+}
+
+.navigation-dropdown {
+  padding: 0.25rem 0.5rem;
+  border: solid 1px $text-color;
+  border-radius: 0 2px 2px 0;
+  font-weight: 300;
+  color: $text-color;
+}
+
+.navigation-dropdown__link {
+  color: $text-color;
+  display: flex;
+  align-items: center;
+}
+
+/* Search */
+
+.search-box {
+  flex-grow: 1;
+  max-width: 60%;
+  @media (max-width: 340px) {
+    max-width: 50%;
+  }
+}
+
+.search-box__field {
+  display: flex;
+}
+
+.search-box__input {
+/* Shrink and grow as needed, but never shrink so
+     small that we can't read the placeholder */
+  flex: 1 0 4rem;
+}
+
+.search-box__button {
+  // Never shrink or grow
+  flex: 0 0 auto;
+}
+
+/* Design search box touches */
+
+.search-box {
+  margin: 0;
+}
+
+input,
+button,
+.search-box {
+  //padding: .35em .75em;
+  border: none;
+  text-decoration: none;
+}
+
+.search-box__input {
+  background-color: darken($text-color-light, 10%);
+  color: #555;
+  padding: 0.25rem 0.5rem;
+  border: solid 1px darken($text-color-light, 10%);
+  // Make sure the placeholder isn't poorly cut off
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-box__input:focus {
+  background: $text-color-light;
+}
+
+.search-box__button {
+  padding: 0 0.5rem;
+  border: solid 1px darken($text-color-light, 10%);
+  background-color: #fff;
+  border-radius: 0 2px 2px 0;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: darken($text-color-light, 10%);
+  //push svg down
+  display: flex;
+  align-items: center;
+}
+
+/* Cart Stuff */
+
+.account-outer {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0 2px 2px 0;
+}
+
+.navigation-cart {
+  padding: 0.25rem 0.5rem;
+  border: solid 1px $text-color;
+  border-radius: 0 2px 2px 0;
+  font-weight: 300;
+  color: $text-color;
+}
+
+.cart__text {
+  display: none;
+  @include tablet {
+    display: inline;
+    margin-left: 6px;
+    color: $text-color;
+  }
+}
+
+/* SVGs */
+
+.navigation-dropdown, .navigation-cart {
+  display: flex;
+  align-items: center;
+}
+
+.account__svg, .cart__svg, .navigation-dropdown__svg, .search-box__button-svg {
+  height: 1.25rem;
+}
+
+.navigation-dropdown__svg {
+  margin-left: 5px;
+}
+
+/* Desktop styling */
+
+/* Hide dropdown on desktop */
+@include tablet {
+  .account__text {
+    font-size: 0.85rem;
+    font-family: $font-sans-serif;
+    display: inline;
+    margin-left: 5px;
+  }
+  .site-navigation {
+    font-size: 0.85rem;
+  }
+  .navigation-dropdown {
+    display: none;
+  }
+  .navigation-menu {
+    list-style: none;
+    margin: 0 0;
+    display: flex;
+  }
+  .navigation__item {
+    margin-right: 1rem;
+  }
+  .navigation__link {
+    color: $text-color;
+  }
+  .search-box {
+    margin-right: $spacing;
+    max-width: auto;
+  }
+  .search-box__input {
+    padding: 0.25rem 1rem;
+  }
+  .account__svg, .cart__svg, .navigation-dropdown__svg, .search-box__button-svg {
+    height: 1rem;
+  }
+  .navigation-cart {
+    //padding: 6px 0.5rem;
+    border: solid 1px $text-color;
+  }
+  .account-outer {
+    padding: 0.5rem 1rem;
+    //padding: 6px 0.5rem;
+  }
+}
+
+/* STICKY NAV */
+/* This class is added on scroll */
+.site-header {
+  height: $spacing*2;
+}
+.site-navigation {
+  position: absolute;
+  width: 100%;
+}
+.fixed {
+	position: fixed;
+	top: 0;
+	z-index: 11;
+}
+
+.l-site-navigation {
+  height: $spacing*2;
+}
+.site-navigation {
+  padding-top: 0; //$spacing/2;
+  padding-bottom: 0; //$spacing/2;
+}
+  .main-content {
+    //margin-top: $spacing*2;
+}
+
+
+
+@include tablet {
+  .site-header {
+    height: $spacing*3;
+  }
+
+  .site-navigation {
+    padding-top: 0; //$spacing/2
+    padding-bottom: 0; //$spacing/2
+  }
+  .main-content {
+    margin-top: $spacing*2.5;
+  }
+}
+
+
+// Slide in nav
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 12;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 1rem;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  color: $text-color;
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}
+}
+
+.mobile-dropdown {
+  padding: 0.25rem 0.5rem;
+  border: solid 1px $text-color;
+  border-radius: 0 2px 2px 0;
+  font-weight: 300;
+  color: $text-color;
+  cursor: pointer;
+  @include tablet {
+    display: none;
+  }
+}
+
+.navigation__link {
+  color: $text-color;
+}
+
+body {
+  transition: background-color .5s;
+}
+
+.site-header__text--desktop {
+  display: none;
+}
+
+//cool header
+@include tablet {
+  .site-header__text--desktop {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0;
+    margin-right: $spacing;
+    color: $text-color;
+  }
+  .site-navigation {
+    position: relative;
+  }
+  .navigation__item:last-child {
+    margin-right: 0;
+  }
+  .navigation-menu {
+    margin-right: $spacing;
+  }
+  .search-box {
+    margin-right: $spacing;
+  }
+  .search-box__button {
+    background-color: transparent;
+    color: lighten($text-color, 10%);
+  }
+  .search-box__input {
+    color: lighten($text-color, 10%);
+    font-size: 0.75rem;
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+  }
+  .main-content {
+    margin: 0;
+  }
+  .l-site-navigation {
+    height: $spacing*3;
+  }
+  .site-navigation {
+    background: #fff;
+  }
+  .navigation__link {
+    font-size: 0.75rem;
+    color: lighten($text-color, 10%);
+  }
+  .navigation-cart {
+    padding: 0.5rem 1rem;
+    border: solid 1px lighten($text-color, 10%);
+    background-color: rgb(205, 40, 47);
+    border-radius: 3px;
+  }
+  .cart__text {
+    font-size: 0.75rem;
+    color: $text-color-light;
+  }
+  .cart__svg {
+    color: $text-color-light;
+    margin-right: 3px;
+  }
+}
