@@ -60,6 +60,11 @@
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
+{% section 'navigation-mobile' %}
+
+<div class="pg-content">
+<div class="navigation-mobile__button" style="font-size:1rem;cursor:pointer;color:#5b5b5b" onclick="openSM()">&#9776;</div>
+
 {% section 'masthead' %}
 
   <main class="main-content" role="main" id="MainContent">
@@ -71,6 +76,7 @@
   {% section 'mailchimp' %}
   {% section 'footer' %}
 
+</div>
 
 </body>
 </html>
