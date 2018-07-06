@@ -7,11 +7,13 @@
         //wrapper
         margin: 0 auto;
         max-width: 1000px;
-        padding: 0 $spacing/2;
-        margin-top: $spacing;
-        margin-bottom: $spacing*2;
-        padding-bottom: $spacing;
-        border-bottom: 1px solid #666;
+        @include tablet {
+            padding: 0 $spacing/2;
+            margin-top: $spacing;
+            margin-bottom: $spacing*2;
+            padding-bottom: $spacing;
+            border-bottom: 1px solid $grey-3;
+        }
     }
 
     .masthead-logo {
@@ -25,21 +27,19 @@
     }
 
     .navigation {
-        order: 3;
-        display: flex;
-        align-items: center;
+        display: none;
         @include tablet {
+            display: block;
             order: 2;
+            align-items: center;
         }
     }
 
 .navigation-menu {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
     @include tablet {
         display: flex;
         flex-direction: row;
+        list-style: none;
         align-items: center;
         margin: 0;
     }
@@ -64,18 +64,16 @@
 .navigation-account {
     display: flex;
     align-items: center;
-    margin-right: 6px;
     @include tablet {
         margin-right: $spacing;
     }
 }
 
 .navigation-account__svg {
-    height: 1.5rem;
-    color: lighten($text-color, 10%);
+    height: 1.25rem;
+    color: $grey-2;
     margin: 0;
     @include tablet {
-        height: 1.2rem;
         margin-right: $spacing/3;
     }
 }
@@ -90,11 +88,12 @@
 }
 
     .navigation-cart {
-        display: flex;
+        display: none;
         align-items: center;
         //border
         margin-right: 15px;
         @include tablet {
+            display: flex;
             margin-right: 0;
             padding: 0.25rem 0.5rem;
             border: solid 1px $text-color;
@@ -104,11 +103,10 @@
 
 .navigation-cart__svg {
     height: 1.5rem;
-    color: lighten($text-color, 10%);
-    margin: 5px;
+    color: $grey-3;
     @include tablet {
         height: 1rem;
-        margin-right: $spacing/3;
+        margin-right: $spacing/2;
     }
 }
 
@@ -138,77 +136,198 @@
     }
 
 
-// For sidebar
-body{
+// Mobile navigation
+
+.masthead {
+    padding-top: $spacing/2;
+    padding-left: $spacing/2;
+    padding-right: $spacing/2;
+    @include tablet {
+        padding-top: 0;
+    }
+}
+
+.navigation-mobile {
+    background: #fff;
+    z-index: 10;
+    max-width: 100%;
+    padding: $spacing/2 $spacing/2;
+    margin-bottom: $spacing/2;
+    border-bottom: 1px solid $grey-4;
+    display: flex;
+    justify-content: space-between;
+    @include tablet {
+        display: none;
+    }
+}
+
+.navigation-cart--mobile {
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    border: solid 1px $grey-4;
+    color: $grey-2;
+}
+
+.navigation-cart__svg {
+    margin-right: 5px;
+    color: $grey-2;
+    height: 1.15rem;
+}
+
+.navigation-cart__count--mobile {
+    color: $grey-2;
+}
+
+/* Search */
+
+.search-box {
+    flex-grow: 1;
+    max-width: 60%;
+    @media (max-width: 340px) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    @media (max-width: 410px) {
+        max-width: 50%;
+    }
+    @media (max-width: 410px) {
+      max-width: 50%;
+    }
+}
+
+  .search-box__field {
+    display: flex;
+  }
+
+  .search-box__input {
+  /* Shrink and grow as needed, but never shrink so
+       small that we can't read the placeholder */
+    flex: 1 0 4rem;
+  }
+
+  .search-box__button {
+    // Never shrink or grow
+    flex: 0 0 auto;
+  }
+
+  /* Design search box touches */
+
+  .search-box {
     margin: 0;
+  }
+
+  input,
+  button,
+  .search-box {
+    //padding: .35em .75em;
+    border: none;
+    text-decoration: none;
+  }
+
+  .search-box__input {
+    color: #555;
+    padding: 0.25rem 6px;
+    border: solid 1px $grey-4;
+    // Make sure the placeholder isn't poorly cut off
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .search-box__input:focus {
+    background: $text-color-light;
+  }
+
+  .search-box__button {
+    padding: 0 0.5rem;
+    border: solid 1px $grey-4;
+    border-left: transparent;
     background-color: #fff;
+    border-radius: 0 2px 2px 0;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: lighten($text-color, 10%);
+    //push svg down
+    display: flex;
+    align-items: center;
+  }
+
+.search-box__button-svg {
+    height: 1.25rem;
+    color: $grey-3;
 }
 
-/* SIDE MENU PART */
-
-.sm-wrapper{
-    margin-top: 100px;
+// Mobile navigation
+.mobile-dropdown-container {
+    display: flex;
+    align-items: center;
+    border: solid 1px $grey-4;
+    padding: 0 6px;
 }
 
-.sidemenu{
+.mobile-dropdown {
+    font-family: $font-sans-serif;
+    color: $grey-2;
+}
+
+.mobile-dropdown__svg {
+    margin-left: 8px;
+    color: $grey-2;
+}
+
+.mobile-dropdown-container:hover {
+    cursor: pointer;
+}
+
+.navigation-account__svg {
+    color: $grey-2;
+    height: 1.3rem;
+}
+
+// Sidenav
+
+.sidenav {
     height: 100%;
     width: 0;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #d8c3a5;
+    background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
 }
 
-.sidemenu a{
+.sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 1rem;
-    font-family: 'Lora', monospace;
-    color: #ffffff;
+    font-size: 25px;
+    color: #818181;
     display: block;
-    letter-spacing: 5px;
-    margin-bottom: 20px;
     transition: 0.3s;
 }
 
-.sidemenu .close{
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
-    font-size: 2rem;
+    font-size: 36px;
     margin-left: 50px;
 }
 
-/* SIDE MENU HOVER EFFECT */
+/* Fixed */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
 
-.sm-wrapper a:after{
-    z-index: -1;
-    position: absolute;
-    left: 0%;
-    width: 0;
-    height: 50px;
-    background: #e85e4f;
-    content: '';
-    transition: width 0.35s ease-in-out;
-}
-
-.sm-wrapper a:hover:after{
-    width: 10%;
-}
-
-.sm-wrapper a:hover{
-    padding-left: 64px;
-    transition: 0.35s ease-in-out;
-}
-
-/* CONTENT PART */
-
-#pg-content{
-    transition: margin-left 0.5s;
-    padding: 16px;
-}
+.sticky + .main-content {
+        margin-top: $spacing*2;
+  }
